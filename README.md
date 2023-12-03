@@ -1,5 +1,7 @@
 # 🎄 Advent of Code🎄
 
+![2023](https://img.shields.io/badge/2023-3%E2%AD%90-green.svg?style=for-the-badge)
+
 ## Summary
 
 [Advent of Code](http://adventofcode.com/) is an annual Advent calendar of programming puzzles. This repository houses my solutions to these festive coding challenges, bringing together a collection of creative and efficient approaches to tackle each problem.

@@ -1,0 +1,39 @@
+name: update 2023 stars
+on: 
+  - push
+  - workflow_dispatch
+jobs:
+  update-2023-stars:
+    name: fetch 2023 stars and update README.md
+    runs-on: ubuntu-latest
+    env:
+      leaderboardId: 3575035
+      userId: 3575035
+      SESSION_COOKIE: ${{ secrets.SESSION_COOKIE }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            README.md
+          sparse-checkout-cone-mode: false
+          
+      - name: fetch 2023 stars
+        run: |
+          curl "https://adventofcode.com/2023/leaderboard/private/view/${leaderboardId}.json" \
+            -H 'Accept: Application/json ' \
+            -H "Cookie: session=${SESSION_COOKIE}" \
+            -o 2023.json
+        
+      - name: update 2023 stars in README.md
+        run: |
+          starsCount=$(jq --arg userId "${userId}" -r '.members[$userId].stars' 2023.json)
+          sed -i "s/\!\[2023\](https:\/\/img\.shields\.io\/badge\/2023-[0-9]\+/\!\[2023\](https:\/\/img\.shields\.io\/badge\/2023-${starsCount}/" README.md
+
+      - name: commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "[no ci] README: update 2023 stars"
+          git push
