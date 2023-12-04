@@ -16,9 +16,9 @@ Advent of Code is not just about solving puzzles; it's a celebration of problem-
 Advent of Code
 |-- year
 |   |-- day1
+|   |   |--  intput.txt
 |   |   |--  part1.py
 |   |   |--  part2.py
-|   |   |--  intput.txt
 |   |-- day2
 ...
 ```
