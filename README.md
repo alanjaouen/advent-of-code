@@ -1,6 +1,6 @@
 # 🎄 Advent of Code🎄
 
-![2023](https://img.shields.io/badge/2023-10%E2%AD%90-green.svg?style=for-the-badge)
+![2023](https://img.shields.io/badge/2023-20%E2%AD%90-green.svg?style=for-the-badge)
 
 ## Summary
 
